@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.home.HomeFragment">
+
+    <ImageView
+        android:id="@+id/imgWineBackground"
+        android:layout_width="0dp"
+        android:layout_height="150dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/wine_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayoutSearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="130dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/rounded_corners_white_b"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imgWineBackground">
+
+        <EditText
+            android:id="@+id/txtWineSearch"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:hint="@string/txtWineSearchHint"
+            android:inputType="text"
+            android:text="@string/txtWineSearch"
+            android:textAlignment="textEnd"
+            android:textColor="@color/Dark"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/imgSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_weight="1"
+            android:src="@drawable/search_24" />
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/scrollViewHolder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imgWineBackground">
+
+        <LinearLayout
+            android:id="@+id/linearLayoutScroll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/linearLayoutFeaturedWines"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/labelFeattuedWines"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:text="@string/labelFeattuedWines"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerViewFeaturedWines"
+                    android:layout_width="match_parent"
+                    android:layout_height="240dp"
+                    android:background="@drawable/rounded_corners_light_red"
+                    android:orientation="horizontal"
+                    android:padding="4dp"
+                    android:scrollbars="horizontal" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/dividerWineType"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginVertical="16dp"
+                android:background="?android:attr/listDivider" />
+
+            <TextView
+                android:id="@+id/labelShopByType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:text="@string/labelShopByType"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/linearLayoutShopByType"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/rounded_corners_rose_wine"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <LinearLayout
+                    android:id="@+id/linearLayoutWineTypeLine1"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/linearLayoutRedWine"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.5"
+                        android:orientation="horizontal">
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardRedWine"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            app:cardCornerRadius="8dp"
+                            android:layout_marginVertical="4dp"
+                            android:layout_weight="0.2">
+
+                            <ImageView
+                                android:id="@+id/imgRedWine"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/glass_red_wine" />
+                        </androidx.cardview.widget.CardView>
+
+                        <Button
+                            android:id="@+id/btnRedWine"
+                            style="@style/RedButton"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.8"
+                            android:text="@string/btnRedWine" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/linearLayoutRoseWine"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.5"
+                        android:orientation="horizontal">
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardRoseWine"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            app:cardCornerRadius="8dp"
+                            android:layout_marginVertical="4dp"
+                            android:layout_weight="0.2">
+
+                            <ImageView
+                                android:id="@+id/imgRoseWine"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/glass_rose_wine" />
+                        </androidx.cardview.widget.CardView>
+
+                        <Button
+                            android:id="@+id/btnRoseWine"
+                            style="@style/RoseButton"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.8"
+                            android:text="@string/btnRoseWine" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearLayoutWineTypeLine2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/linearLayoutWhiteWine"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.5"
+                        android:orientation="horizontal">
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardWhiteWine"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            app:cardCornerRadius="8dp"
+                            android:layout_marginVertical="4dp"
+                            android:layout_weight="0.2" >
+
+                            <ImageView
+                                android:id="@+id/imgWhiteWine"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/glass_white_wine" />
+                        </androidx.cardview.widget.CardView>
+
+                        <Button
+                            android:id="@+id/btnWhiteWine"
+                            style="@style/YellowButton"
+                            android:layout_width="0dp"
+                            android:layout_height="50dp"
+                            android:layout_weight="0.8"
+                            android:text="@string/btnWhiteWine" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/linearLayoutSparklingWine"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.5"
+                        android:orientation="horizontal">
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardSparklingWine"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            app:cardCornerRadius="8dp"
+                            android:layout_marginVertical="4dp"
+                            android:layout_weight="0.2" >
+
+                            <ImageView
+                                android:id="@+id/imgSparklingWine"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/glass_sparkling_wine" />
+                        </androidx.cardview.widget.CardView>
+
+                        <Button
+                            android:id="@+id/btnSparklingWine"
+                            style="@style/GoldButton"
+                            android:layout_width="0dp"
+                            android:layout_height="50dp"
+                            android:layout_weight="0.8"
+                            android:text="@string/btnSparklingWine" />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
